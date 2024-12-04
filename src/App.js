@@ -1,24 +1,33 @@
+import Gallery from './components/Gallery';
 import logo from './logo.svg';
-import './App.css';
+import {useState} from "react";
+
 
 function App() {
+
+  const [pos,setPos] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Gallery
+        images={[
+          "/images/airmain.png",
+          "/images/airmains.png",
+          "/images/Airport.png",
+          "/images/airmain.png",
+          "/images/airmains.png",
+          "/images/Airport.png",
+        ]}
+
+        pos={pos}
+
+        onBack={() =>{
+          setPos(pos-1)
+        }}
+
+        onNext={()=>{
+          setPos(pos+1)
+        }}
+      />
   );
 }
 
